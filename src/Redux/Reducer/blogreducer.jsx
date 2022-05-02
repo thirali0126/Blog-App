@@ -32,7 +32,25 @@ export const Blogreducer = (state = initialstate, action) => {
         };
 
       }
+
+      case "UPDATE_BLOGS": {
+       
+        return {
+          ...state,
+          blogs: state.blogs.map((blog) =>
+          blog.id == action.payload.id ? action.payload : blog
+          ),
+        };
+      }
+
+      case "EDIT_BLOGS": {
+        return {
+          ...state,
+          blogs: action.payload
+        };
+      }
     default:
       return state;
-}
+
+  }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
-import {DeleteBlog} from '../Redux/Action/Blogaction';
+import {DeleteBlog, editBlog} from '../Redux/Action/Blogaction';
 import {useHistory} from 'react-router-dom';
 
 
@@ -12,6 +12,12 @@ const dispatch = useDispatch ();
 
     const blogSelector = useSelector (state => state.blogs.blogs);
     console.log ('blogSelector ', blogSelector);
+
+    const edithandler = data => {
+  console.log ('edit', data);
+  dispatch (editBlog (data));
+  history.push ("/thirali");
+};
 
 
   return (
@@ -44,7 +50,8 @@ const dispatch = useDispatch ();
                   Delete
                 </button>
                 <button type="button" 
-                className="btn btn-sm btn-dark mx-3">
+                className="btn btn-sm btn-dark mx-3"
+                onClick={() => edithandler(blogs)}>
                   Update
                 </button>
 

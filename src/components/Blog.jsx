@@ -1,30 +1,63 @@
 import React from 'react';
-import {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useState, useEffect} from 'react';
+import {useDispatch , useSelector} from 'react-redux';
 import {useHistory, useParams} from 'react-router-dom';
-import {AddBlog} from '../Redux/Action/Blogaction';
+import {AddBlog ,updateBlog , editBlog} from '../Redux/Action/Blogaction';
 
 import shortid from 'shortid';
 
 export default function Blog () {
-  // let {id} = useParams ();
+  let {id} = useParams ();
   let history = useHistory ();
   const dispatch = useDispatch ();
   const [Title, setTitle] = useState ('');
   const [Description, setDescription] = useState ('');
 
-  const submithandler = e => {
-    // e.preventDefault ();
-    // const blogdata = {
-    //   id: shortid.generate (),
-    //   Title: Title,
-    //   Description: Description,
-    // };
-    // dispatch (AddBlog (blogdata));
-    // console.log ('blogdata' + JSON.stringify (blogdata));
-    history.push ("/list");
-    
+  const geteditSelector = useSelector (state => state.blogs);
+  console.log ('geteditSelector', geteditSelector.blogs);
+
+
+  const submitHandler = e => {
+    e.preventDefault ();
+    if (id) {
+      const blogdata = {
+        id: id,
+        Title: Title,
+        Description: Description,
+      };
+      dispatch (updateBlog (blogdata));
+      history.push ('/list');
+    } else {
+      const blogdata = {
+        id: shortid.generate (),
+        Title: Title,
+        Description: Description,
+      };
+      dispatch (editBlog (''));
+      dispatch (AddBlog (blogdata));
+      console.log ('blogdata' + JSON.stringify (blogdata));
+      history.push ('/list');
+    }
   };
+  useEffect (
+  () => {
+    if (id) {
+      dispatch (editBlog (id));
+    }
+  },
+  [id]
+);
+
+useEffect (
+  () => {
+    if (geteditSelector != null) {
+      setTitle (geteditSelector.Title);
+      setDescription (geteditSelector.Description);
+      
+    }
+  },
+  [geteditSelector]
+);
 
   return (
     <div className="alignment">
@@ -56,11 +89,11 @@ export default function Blog () {
         />
       </div>
       <div className="d-grid gap-2">
-        <button class="btnn" type="submit" onClick={submithandler}>
+        <button class="btnn" type="submit" onClick={submitHandler}>
           Add Blog
         </button>
       </div>
     </div>
-  )
+  );
 }
 

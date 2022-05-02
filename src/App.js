@@ -16,6 +16,7 @@ function App () {
             <Route path="/blog" exact component={Blog} />
             <Route  path="/list" exact  component={List} />
             <Route path="/hello" exact component={Hello} />
+            <Route path="/thirali" exact component={Blog} />
           </Switch>
         </BrowserRouter>
       </Provider>
