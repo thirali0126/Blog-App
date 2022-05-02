@@ -14,15 +14,16 @@ export default function Blog () {
   const [Description, setDescription] = useState ('');
 
   const submithandler = e => {
-    e.preventDefault ();
-    const blogdata = {
-      id: shortid.generate (),
-      Title: Title,
-      Description: Description,
-    };
-    dispatch (AddBlog (blogdata));
-    console.log ('blogdata' + JSON.stringify (blogdata));
+    // e.preventDefault ();
+    // const blogdata = {
+    //   id: shortid.generate (),
+    //   Title: Title,
+    //   Description: Description,
+    // };
+    // dispatch (AddBlog (blogdata));
+    // console.log ('blogdata' + JSON.stringify (blogdata));
     history.push ("/list");
+    
   };
 
   return (

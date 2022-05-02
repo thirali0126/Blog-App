@@ -15,12 +15,23 @@ const initialstate = {
 
 export const Blogreducer = (state = initialstate, action) => {
   switch (action.type) {
-    case 'CREATE_BLOG': {
+    case 'CREATE_BLOGS': {
       return {
         ...state,
         blogs: [action.payload, ...state.blogs],
       };
     }
+    case "DELETE_BLOGS":
+      {
+       
+        return {
+          ...state,
+          blogs: state.blogs.filter(
+            (blog) => blog.id != action.payload
+          ),
+        };
+
+      }
     default:
       return state;
 }

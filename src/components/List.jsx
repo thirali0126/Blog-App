@@ -1,8 +1,15 @@
 import React from 'react'
 import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {DeleteBlog} from '../Redux/Action/Blogaction';
+import {useHistory} from 'react-router-dom';
 
 
 export default function List() {
+
+  let history = useHistory ();
+const dispatch = useDispatch ();
+
     const blogSelector = useSelector (state => state.blogs.blogs);
     console.log ('blogSelector ', blogSelector);
 
@@ -29,10 +36,15 @@ export default function List() {
               <td>{blogs.Description}</td>
               <td>
 
-                <button type="button" className="btn btn-sm btn-danger mx-3">
+                <button 
+                  type="button" 
+                  onClick={() => dispatch (DeleteBlog (blogs.id))}
+                  className="btn btn-sm btn-danger mx-3"
+                >
                   Delete
                 </button>
-                <button type="button" className="btn btn-sm btn-dark mx-3">
+                <button type="button" 
+                className="btn btn-sm btn-dark mx-3">
                   Update
                 </button>
 
