@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.alignment{
+  margin-top: 50px;
+  text-align: left;
+}
+
+.form-label{
+
+  font-size: 30px;
+}
+
+.btn{
+    font-size: 18px;
+    background-color: coral;
+    color: azure;
+}
