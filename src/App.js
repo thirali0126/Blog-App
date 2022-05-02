@@ -1,18 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Bloglist from './components/bloglist';
-import Blogform from './components/blogform';
+import Blog from './components/Blog';
+import Store from './Store';
+import Header from './components/header';
+import Hello from './components/Hello/hello';
+import List from './components/List';
 
-
-function App() {
+function App () {
   return (
-    <div className="App">
-      <Switch>
-        <Route path="/blogform" exact component={Blogform} />
-        <Route path="/bloglist" exact component={Bloglist}/>
-      </Switch>
-    </div>
+    <>
+      <Header />
+      <Provider store={Store}>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/blog" exact component={Blog} />
+            <Route  path="/list" exact  component={List} />
+            <Route path="/hello" exact component={Hello} />
+          </Switch>
+        </BrowserRouter>
+      </Provider>
+    </>
   );
 }
 

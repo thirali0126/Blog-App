@@ -19,10 +19,10 @@ function Header() {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link" aria-current="page" href="/blogform">Add Blog</a>
+          <a className="nav-link" aria-current="page" href="/blog">Add Blog</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/bloglist">Blog List</a>
+          <a className="nav-link" href="/list">Blog List</a>
         </li>
         
       </ul>
