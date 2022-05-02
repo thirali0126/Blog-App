@@ -23,6 +23,8 @@ export default function Blog () {
         id: id,
         Title: Title,
         Description: Description,
+
+        
       };
       dispatch (updateBlog (blogdata));
       history.push ('/list');
@@ -32,14 +34,10 @@ export default function Blog () {
         Title: Title,
         Description: Description,
       };
-      if (blogdata.Title.length > 0 && blogdata.Description.length > 0) {
-        if (/^[A-Z]{1,20}$/.test (blogdata.Title) && /^[A-Z]{1,20}$/.test(blogdata.Description)) {
-          dispatch (editBlog (''));
-          dispatch (AddBlog (blogdata));
-          console.log ('blogdata' + JSON.stringify (blogdata));
-          history.push ('/list');
-        }
-      }
+      dispatch (editBlog (''));
+      dispatch (AddBlog (blogdata));
+      console.log ('blogdata' + JSON.stringify (blogdata));
+      history.push ('/list');
     }
   };
   useEffect (
