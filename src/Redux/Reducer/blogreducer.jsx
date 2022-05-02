@@ -2,13 +2,13 @@ const initialstate = {
   blogs: [
     {
       id: 1,
-      Title: '2332222222222222',
-      Description: 'Thirali',
+      Title: 'Fashion',
+      Description: 'erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis.',
     },
     {
       id: 2,
-      Title: '4442222222222222',
-      Description: 'Zalak',
+      Title: 'Read',
+      Description: 'erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis.',
     },
   ],
 };

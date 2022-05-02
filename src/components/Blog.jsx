@@ -1,8 +1,8 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import {useDispatch , useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useHistory, useParams} from 'react-router-dom';
-import {AddBlog ,updateBlog , editBlog} from '../Redux/Action/Blogaction';
+import {AddBlog, updateBlog, editBlog} from '../Redux/Action/Blogaction';
 
 import shortid from 'shortid';
 
@@ -15,7 +15,6 @@ export default function Blog () {
 
   const geteditSelector = useSelector (state => state.blogs);
   console.log ('geteditSelector', geteditSelector.blogs);
-
 
   const submitHandler = e => {
     e.preventDefault ();
@@ -40,24 +39,23 @@ export default function Blog () {
     }
   };
   useEffect (
-  () => {
-    if (id) {
-      dispatch (editBlog (id));
-    }
-  },
-  [id]
-);
+    () => {
+      if (id) {
+        dispatch (editBlog (id));
+      }
+    },
+    [id]
+  );
 
-useEffect (
-  () => {
-    if (geteditSelector != null) {
-      setTitle (geteditSelector.Title);
-      setDescription (geteditSelector.Description);
-      
-    }
-  },
-  [geteditSelector]
-);
+  useEffect (
+    () => {
+      if (geteditSelector != null) {
+        setTitle (geteditSelector.Title);
+        setDescription (geteditSelector.Description);
+      }
+    },
+    [geteditSelector]
+  );
 
   return (
     <div className="alignment">
@@ -96,4 +94,3 @@ useEffect (
     </div>
   );
 }
-
